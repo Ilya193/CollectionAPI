@@ -1,6 +1,6 @@
 package ru.kraz.collectionapi.data.mars
 
-import ru.kraz.collectionapi.domain.ImageDomain
+import ru.kraz.collectionapi.domain.mars.ImageDomain
 
 data class ImageData(
     val id: String,

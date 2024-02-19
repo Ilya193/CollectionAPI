@@ -2,7 +2,6 @@
     <string name="app_name">CollectionAPI</string>
     <string name="choise_api">"API: "</string>
     <string name="no_connection">Нет подключения к интернету</string>
-    <string name="service_unavailable">Сервер недоступен</string>
     <string name="something_went_wrong">Произошла ошибка</string>
     <string name="retry">Попробовать снова</string>
 </resources>

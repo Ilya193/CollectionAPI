@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import ru.kraz.collectionapi.presentation.common.APIUi
 
 @Composable
 fun ElementAPI(item: APIUi, open: () -> Unit) {

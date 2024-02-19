@@ -1,4 +1,4 @@
-package ru.kraz.collectionapi.domain
+package ru.kraz.collectionapi.domain.common
 
 import ru.kraz.collectionapi.R
 
@@ -9,7 +9,6 @@ interface ResourceProvider {
         override fun getData(e: ErrorType): Int {
             return when (e) {
                 ErrorType.NO_CONNECTION -> R.string.no_connection
-                ErrorType.SERVICE_UNAVAILABLE -> R.string.service_unavailable
                 ErrorType.GENERIC_ERROR -> R.string.something_went_wrong
             }
         }

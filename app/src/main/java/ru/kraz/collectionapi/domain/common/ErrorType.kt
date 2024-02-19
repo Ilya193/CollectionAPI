@@ -1,7 +1,6 @@
-package ru.kraz.collectionapi.domain
+package ru.kraz.collectionapi.domain.common
 
 enum class ErrorType {
     NO_CONNECTION,
-    SERVICE_UNAVAILABLE,
     GENERIC_ERROR
 }

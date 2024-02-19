@@ -5,9 +5,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.kraz.collectionapi.domain.FetchImagesUseCase
-import ru.kraz.collectionapi.domain.ResourceProvider
-import ru.kraz.collectionapi.domain.ResultFDS
+import ru.kraz.collectionapi.domain.mars.FetchImagesUseCase
+import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.common.ResultFDS
 
 class MarsViewModel(
     private val fetchImagesUseCase: FetchImagesUseCase,

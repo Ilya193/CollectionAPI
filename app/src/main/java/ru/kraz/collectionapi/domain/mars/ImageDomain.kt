@@ -1,4 +1,4 @@
-package ru.kraz.collectionapi.domain
+package ru.kraz.collectionapi.domain.mars
 
 data class ImageDomain(
     val id: String,

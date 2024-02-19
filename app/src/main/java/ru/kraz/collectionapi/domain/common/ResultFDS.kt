@@ -1,4 +1,4 @@
-package ru.kraz.collectionapi.domain
+package ru.kraz.collectionapi.domain.common
 
 sealed class ResultFDS<out T> {
 

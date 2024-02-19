@@ -1,4 +1,6 @@
-package ru.kraz.collectionapi.domain
+package ru.kraz.collectionapi.domain.mars
+
+import ru.kraz.collectionapi.domain.common.ResultFDS
 
 class FetchImagesUseCase(
     private val repository: MarsRepository
