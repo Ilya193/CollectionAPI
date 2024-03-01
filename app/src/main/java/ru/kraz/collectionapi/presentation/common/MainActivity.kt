@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ru.kraz.collectionapi.presentation.dummy.DummyJSONScreen
 import ru.kraz.collectionapi.presentation.json.JsonAPIScreen
 import ru.kraz.collectionapi.presentation.mars.MarsAPIScreen
 import ru.kraz.collectionapi.ui.theme.CollectionAPITheme
@@ -43,6 +44,9 @@ fun Content(modifier: Modifier = Modifier) {
         }
         composable(Screens.JsonAPI.route) {
             JsonAPIScreen()
+        }
+        composable(Screens.DummyJSON.route) {
+            DummyJSONScreen()
         }
     }
 }

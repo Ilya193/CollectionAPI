@@ -52,7 +52,8 @@ fun MainScreen(navController: NavController) {
     val apis = remember {
         mutableStateListOf(
             APIUi("MarsAPI", R.drawable.ic_mars, "MarsAPI"),
-            APIUi("JSONPlaceholder", R.drawable.ic_json, "JsonAPI")
+            APIUi("JSONPlaceholder", R.drawable.ic_json, "JsonAPI"),
+            APIUi("dummyJSON", R.drawable.ic_json, "dummyJSON")
         )
     }
     var currentAPI by remember { mutableStateOf("") }

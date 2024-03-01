@@ -12,15 +12,21 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import ru.kraz.collectionapi.data.dummu.DummyService
+import ru.kraz.collectionapi.data.dummu.ProductsRepositoryImpl
 import ru.kraz.collectionapi.data.json.PostsRepositoryImpl
 import ru.kraz.collectionapi.data.json.PostsService
 import ru.kraz.collectionapi.data.mars.MarsRepositoryImpl
 import ru.kraz.collectionapi.data.mars.MarsService
 import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.dummy.FetchProductsUseCase
+import ru.kraz.collectionapi.domain.dummy.ProductsRepository
 import ru.kraz.collectionapi.domain.json.FetchPostsUseCase
 import ru.kraz.collectionapi.domain.json.PostsRepository
 import ru.kraz.collectionapi.domain.mars.FetchImagesUseCase
 import ru.kraz.collectionapi.domain.mars.MarsRepository
+import ru.kraz.collectionapi.presentation.dummy.ProductsViewModel
+import ru.kraz.collectionapi.presentation.dummy.ToProductUiMapper
 import ru.kraz.collectionapi.presentation.json.PostsViewModel
 import ru.kraz.collectionapi.presentation.json.ToPostUiMapper
 import ru.kraz.collectionapi.presentation.mars.MarsViewModel
@@ -46,12 +52,20 @@ val appModule = module {
         PostsViewModel(get(), get(), get())
     }
 
+    viewModel<ProductsViewModel> {
+        ProductsViewModel(get(), get(), get())
+    }
+
     factory<FetchImagesUseCase> {
         FetchImagesUseCase(get())
     }
 
     factory<FetchPostsUseCase> {
         FetchPostsUseCase(get())
+    }
+
+    factory<FetchProductsUseCase> {
+        FetchProductsUseCase(get())
     }
 
     factory<MarsRepository> {
@@ -62,6 +76,10 @@ val appModule = module {
         PostsRepositoryImpl(get())
     }
 
+    factory<ProductsRepository> {
+        ProductsRepositoryImpl(get())
+    }
+
     factory<ToImageUiMapper> {
         ToImageUiMapper()
     }
@@ -70,7 +88,11 @@ val appModule = module {
         ToPostUiMapper()
     }
 
-    factory<ResourceProvider> {
+    factory<ToProductUiMapper> {
+        ToProductUiMapper()
+    }
+
+    single<ResourceProvider> {
         ResourceProvider.Base()
     }
 
@@ -88,5 +110,13 @@ val appModule = module {
             .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build()))
             .build()
             .create(PostsService::class.java)
+    }
+
+    single<DummyService> {
+        Retrofit.Builder()
+            .baseUrl("https://dummyjson.com/")
+            .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build()))
+            .build()
+            .create(DummyService::class.java)
     }
 }
