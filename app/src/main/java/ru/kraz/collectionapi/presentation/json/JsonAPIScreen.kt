@@ -31,9 +31,15 @@ fun JsonAPIScreen(viewModel: PostsViewModel = koinViewModel()) {
     if (data.posts.isNotEmpty())
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             itemsIndexed(items = data.posts, key = { index, item -> item.id }) { index, item ->
-                PostItem(modifier = Modifier.animateItemPlacement(tween(durationMillis = 250)), item = item) {
-                    viewModel.delete(index)
-                }
+                PostItem(
+                    modifier = Modifier.animateItemPlacement(tween(durationMillis = 250)),
+                    item = item,
+                    onClick = {
+                        viewModel.expand(index)
+                    },
+                    onLongClick = {
+                        viewModel.delete(index)
+                    })
             }
         }
 }

@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
@@ -21,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import ru.kraz.collectionapi.R
+import ru.kraz.collectionapi.ui.theme.BlueDark
+import ru.kraz.collectionapi.ui.theme.Gray
 
 @Composable
 fun ProductItem(item: ProductUi, click: () -> Unit) {
@@ -41,6 +45,9 @@ fun ProductItem(item: ProductUi, click: () -> Unit) {
     ) {
         Card(
             modifier = Modifier.fillMaxSize(),
+            colors = CardDefaults.cardColors(
+                containerColor = if (isSystemInDarkTheme()) BlueDark else Gray
+            )
         ) {
             Column {
                 InformationText(item.title, 20.sp)
@@ -64,7 +71,6 @@ fun ProductItem(item: ProductUi, click: () -> Unit) {
                         Text(modifier = Modifier.align(Alignment.CenterVertically),
                             text = item.rating.toString(), style = TextStyle(
                                 color = Color.Yellow,
-                                fontWeight = FontWeight.Bold
                             )
                         )
                     }
@@ -78,6 +84,7 @@ fun ProductItem(item: ProductUi, click: () -> Unit) {
 fun InformationText(info: String, size: TextUnit) {
     Text(
         modifier = Modifier.padding(4.dp), text = info, style = TextStyle(
+            color = if (isSystemInDarkTheme()) Color.White else Color.Black,
             fontSize = size,
             fontWeight = FontWeight.Bold
         )

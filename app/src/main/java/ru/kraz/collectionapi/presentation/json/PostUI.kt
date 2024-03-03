@@ -4,7 +4,8 @@ data class PostUi(
     val id: Int,
     val body: String,
     val title: String,
-    val userId: Int
+    val userId: Int,
+    val expanded: Boolean = false
 )
 
 data class PostUiState(

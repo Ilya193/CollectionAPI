@@ -10,4 +10,5 @@
     <color name="containerDark">#292a31</color>
     <color name="containerWhite">#E9E9ED</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="content">#2C2D30</color>
 </resources>

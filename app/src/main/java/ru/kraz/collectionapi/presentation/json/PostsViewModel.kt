@@ -35,4 +35,9 @@ class PostsViewModel(
         _uiState.value = PostUiState(posts = posts.toList())
     }
 
+    fun expand(index: Int) = viewModelScope.launch(Dispatchers.IO) {
+        posts[index] = posts[index].copy(expanded = !posts[index].expanded)
+        _uiState.value = PostUiState(posts = posts.toList())
+    }
+
 }
