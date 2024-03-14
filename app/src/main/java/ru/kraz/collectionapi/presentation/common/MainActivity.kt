@@ -7,6 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -43,7 +45,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Content(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screens.Main.route) {
+    NavHost(navController = navController, startDestination = Screens.Main.route, enterTransition = {
+        EnterTransition.None
+    }, exitTransition = {
+        ExitTransition.None
+    }) {
         composable(Screens.Main.route) {
             MainScreen(navController = navController)
         }
