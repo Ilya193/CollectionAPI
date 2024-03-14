@@ -18,13 +18,14 @@ import ru.kraz.collectionapi.data.json.PostsRepositoryImpl
 import ru.kraz.collectionapi.data.json.PostsService
 import ru.kraz.collectionapi.data.mars.MarsRepositoryImpl
 import ru.kraz.collectionapi.data.mars.MarsService
-import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.common.StringErrorProvider
 import ru.kraz.collectionapi.domain.dummy.FetchProductsUseCase
 import ru.kraz.collectionapi.domain.dummy.ProductsRepository
 import ru.kraz.collectionapi.domain.json.FetchPostsUseCase
 import ru.kraz.collectionapi.domain.json.PostsRepository
 import ru.kraz.collectionapi.domain.mars.FetchImagesUseCase
 import ru.kraz.collectionapi.domain.mars.MarsRepository
+import ru.kraz.collectionapi.presentation.common.BaseStringErrorProvider
 import ru.kraz.collectionapi.presentation.dummy.ProductsViewModel
 import ru.kraz.collectionapi.presentation.dummy.ToProductUiMapper
 import ru.kraz.collectionapi.presentation.json.PostsViewModel
@@ -92,8 +93,8 @@ val appModule = module {
         ToProductUiMapper()
     }
 
-    single<ResourceProvider> {
-        ResourceProvider.Base()
+    single<StringErrorProvider> {
+        BaseStringErrorProvider()
     }
 
     single<MarsService> {

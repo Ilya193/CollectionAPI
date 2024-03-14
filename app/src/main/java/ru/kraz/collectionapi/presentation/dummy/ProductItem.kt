@@ -13,16 +13,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -34,6 +31,7 @@ import ru.kraz.collectionapi.R
 import ru.kraz.collectionapi.ui.theme.BlueDark
 import ru.kraz.collectionapi.ui.theme.Gray
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductItem(item: ProductUi, click: () -> Unit) {
     Box(
@@ -68,7 +66,8 @@ fun ProductItem(item: ProductUi, click: () -> Unit) {
                             painter = painterResource(R.drawable.ic_star),
                             contentDescription = null,
                         )
-                        Text(modifier = Modifier.align(Alignment.CenterVertically),
+                        Text(
+                            modifier = Modifier.align(Alignment.CenterVertically),
                             text = item.rating.toString(), style = TextStyle(
                                 color = Color.Yellow,
                             )

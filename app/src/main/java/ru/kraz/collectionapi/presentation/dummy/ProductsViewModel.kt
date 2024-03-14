@@ -5,14 +5,14 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.common.StringErrorProvider
 import ru.kraz.collectionapi.domain.common.ResultFDS
 import ru.kraz.collectionapi.domain.dummy.FetchProductsUseCase
 
 class ProductsViewModel(
     private val fetchProductsUseCase: FetchProductsUseCase,
     private val mapper: ToProductUiMapper,
-    private val resourceProvider: ResourceProvider
+    private val resourceProvider: StringErrorProvider
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProductUiState(isLoading = true))

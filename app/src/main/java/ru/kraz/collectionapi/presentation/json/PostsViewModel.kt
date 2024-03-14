@@ -6,14 +6,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.common.StringErrorProvider
 import ru.kraz.collectionapi.domain.common.ResultFDS
 import ru.kraz.collectionapi.domain.json.FetchPostsUseCase
 
 class PostsViewModel(
     private val fetchPostsUseCase: FetchPostsUseCase,
     private val mapper: ToPostUiMapper,
-    private val resourceProvider: ResourceProvider
+    private val resourceProvider: StringErrorProvider
 ) : ViewModel() {
 
     private val posts = mutableListOf<PostUi>()

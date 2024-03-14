@@ -1,5 +1,6 @@
 package ru.kraz.collectionapi.presentation.dummy
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

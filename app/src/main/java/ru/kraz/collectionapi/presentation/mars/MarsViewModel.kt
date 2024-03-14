@@ -6,13 +6,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import ru.kraz.collectionapi.domain.mars.FetchImagesUseCase
-import ru.kraz.collectionapi.domain.common.ResourceProvider
+import ru.kraz.collectionapi.domain.common.StringErrorProvider
 import ru.kraz.collectionapi.domain.common.ResultFDS
 
 class MarsViewModel(
     private val fetchImagesUseCase: FetchImagesUseCase,
     private val mapper: ToImageUiMapper,
-    private val resourceProvider: ResourceProvider
+    private val resourceProvider: StringErrorProvider
 ): ViewModel() {
 
     private val _uiState = MutableStateFlow(ImageUiState(isLoading = true))
