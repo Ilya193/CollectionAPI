@@ -1,5 +1,8 @@
 package ru.kraz.collectionapi.data.dummu
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ProductCloud(
     val brand: String,
     val category: String,

@@ -97,26 +97,28 @@ val appModule = module {
         BaseStringErrorProvider()
     }
 
-    single<MarsService> {
+    single<Retrofit.Builder> {
         Retrofit.Builder()
-            .baseUrl("https://android-kotlin-fun-mars-server.appspot.com/")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+    }
+
+    single<MarsService> {
+        get<Retrofit.Builder>()
+            .baseUrl("https://android-kotlin-fun-mars-server.appspot.com/")
             .build()
             .create(MarsService::class.java)
     }
 
     single<PostsService> {
-        Retrofit.Builder()
+        get<Retrofit.Builder>()
             .baseUrl("https://jsonplaceholder.typicode.com/")
-            .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build()))
             .build()
             .create(PostsService::class.java)
     }
 
     single<DummyService> {
-        Retrofit.Builder()
+        get<Retrofit.Builder>()
             .baseUrl("https://dummyjson.com/")
-            .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build()))
             .build()
             .create(DummyService::class.java)
     }

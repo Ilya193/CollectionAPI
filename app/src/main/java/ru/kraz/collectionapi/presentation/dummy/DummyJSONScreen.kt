@@ -36,6 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -43,6 +44,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 import ru.kraz.collectionapi.R
@@ -102,7 +104,10 @@ fun MinimalDialog(
             ) {
                 AsyncImage(
                     modifier = Modifier.fillMaxSize(),
-                    model = images[it],
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(images[it])
+                        .crossfade(true)
+                        .build(),
                     contentDescription = null,
                     contentScale = ContentScale.Crop
                 )

@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import ru.kraz.collectionapi.R
 import ru.kraz.collectionapi.ui.theme.BlueDark
 import ru.kraz.collectionapi.ui.theme.Gray
@@ -55,7 +57,10 @@ fun ProductItem(item: ProductUi, click: () -> Unit) {
                 }) {
                     AsyncImage(
                         modifier = Modifier.fillMaxSize(),
-                        model = item.thumbnail,
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(item.thumbnail)
+                            .crossfade(true)
+                            .build(),
                         contentDescription = null,
                         contentScale = ContentScale.Crop
                     )
